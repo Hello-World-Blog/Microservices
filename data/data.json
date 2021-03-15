@@ -1,0 +1,30 @@
+[
+    {
+        "id": "c98e6fe3-7986-11eb-9b46-98fa9b64e75b",
+        "name": "iPhone 12",
+        "description": "Base variant of iPhone 12",
+        "price": 80000,
+        "isAvailable": true
+    },
+    {
+        "id": "e7f31219-7986-11eb-bd65-98fa9b64e75b",
+        "name": "iPhone 12 Pro",
+        "description": "Pro variant of iPhone 12",
+        "price": 100000,
+        "isAvailable": false
+    },
+    {
+        "id": "f82fa5ec-7986-11eb-a8e3-98fa9b64e75b",
+        "name": "iPhone 12 Pro Max",
+        "description": "Pro max variant of iPhone 12",
+        "price": 120000,
+        "isAvailable": true
+    },
+    {
+        "id": "e7f35219-7986-11eb-bd65-98fa9b64e75b",
+        "name": "iPhone 12 Mini",
+        "description": "Mini variant of iPhone 12",
+        "price": 60000,
+        "isAvailable": true
+    }
+]
