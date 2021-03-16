@@ -19,6 +19,7 @@ type Product struct {
 // ErrNoProduct is used if no product found
 var ErrNoProduct = errors.New("no product found")
 
+// GetProducts returns the JSON file content if available else returns an error.
 func GetProducts() ([]byte, error) {
 	// Read JSON file
 	data, err := ioutil.ReadFile("./data/data.json")
@@ -28,6 +29,7 @@ func GetProducts() ([]byte, error) {
 	return data, nil
 }
 
+// GetProduct takes id as input and returns the corresponding product, else it returns ErrNoProduct error.
 func GetProduct(id string) (Product, error) {
 	// Read JSON file
 	data, err := ioutil.ReadFile("./data/data.json")
@@ -44,16 +46,14 @@ func GetProduct(id string) (Product, error) {
 	for i := 0; i < len(products); i++ {
 		// if we find one product with the given ID
 		if products[i].ID == id {
-			if err != nil {
-				return Product{}, err
-			}
-			// Write the body with JSON data
+			// return product
 			return products[i], nil
 		}
 	}
 	return Product{}, ErrNoProduct
 }
 
+// DeleteProduct takes id as input and deletes the corresponding product, else it returns ErrNoProduct error.
 func DeleteProduct(id string) error {
 	// Read JSON file
 	data, err := ioutil.ReadFile("./data/data.json")
@@ -86,6 +86,7 @@ func DeleteProduct(id string) error {
 	return ErrNoProduct
 }
 
+// AddProduct adds an input product to the product list in JSON document.
 func AddProduct(product Product) error {
 	// Load existing products and append the data to product list
 	var products []Product
@@ -114,6 +115,7 @@ func AddProduct(product Product) error {
 	return nil
 }
 
+// removeElement is used to remove element from product array at given index
 func removeElement(arr []Product, index int) []Product {
 	ret := make([]Product, 0)
 	ret = append(ret, arr[:index]...)
