@@ -103,7 +103,7 @@ func DeleteProductHandler() http.HandlerFunc {
 	}
 }
 
-// UpdateProductHandler deletes the product with given ID.
+// UpdateProductHandler updates the product with given ID.
 func UpdateProductHandler() http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
 		// Read product ID
