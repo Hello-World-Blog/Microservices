@@ -1,7 +1,9 @@
 # Product Catalog API
 
-Do refer to the blog <a href="https://learnai1.home.blog/2021/03/15/microservices-in-go/">here</a> for a detailed tutorial on this project.
+Blogs for Detailed Tutorial:
 
+* <a href="https://learnai1.home.blog/2021/03/15/microservices-in-go/">Part I</a>
+<!-- * <a href="https://learnai1.home.blog/2021/03/15/microservices-in-go/">Part II</a> -->
 ## Run API
 
 ``` bash
