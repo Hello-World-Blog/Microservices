@@ -11,7 +11,6 @@ import (
 func main() {
 	// Create new Router
 	router := mux.NewRouter()
-
 	// route properly to respective handlers
 	router.Handle("/products", handlers.GetProductsHandler()).Methods("GET")
 	router.Handle("/products", handlers.CreateProductHandler()).Methods("POST")
@@ -22,7 +21,7 @@ func main() {
 	// Create new server and assign the router
 	server := http.Server{
 		Addr:    ":9090",
-		Handler: router,
+		Handler: handlers.AuthHandler(router),
 	}
 	fmt.Println("Staring Product Catalog server on Port 9090")
 	// Start Server on defined port/host.
