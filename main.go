@@ -25,5 +25,8 @@ func main() {
 	}
 	fmt.Println("Staring Product Catalog server on Port 9090")
 	// Start Server on defined port/host.
-	server.ListenAndServe()
+	err := server.ListenAndServeTLS("server.crt", "server.key")
+	if err != nil {
+		fmt.Printf("Failed to start HTTPS server: %s", err.Error())
+	}
 }
