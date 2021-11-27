@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	// standard library
 	"crypto/sha256"
 	"crypto/subtle"
 	"encoding/json"
@@ -8,8 +9,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-
+	// internal
 	"github.com/HelloWorld/goProductAPI/entity"
+	// third party
 	"github.com/gorilla/mux"
 )
 
@@ -23,7 +25,7 @@ func GetProductsHandler() http.HandlerFunc {
 		}
 		// Write the body with JSON data
 		rw.Header().Add("content-type", "application/json")
-		rw.WriteHeader(http.StatusFound)
+		rw.WriteHeader(http.StatusOK)
 		rw.Write(data)
 	}
 }
@@ -51,7 +53,7 @@ func GetProductHandler() http.HandlerFunc {
 		}
 		// Write body with found product
 		rw.Header().Add("content-type", "application/json")
-		rw.WriteHeader(http.StatusFound)
+		rw.WriteHeader(http.StatusOK)
 		rw.Write(responseData)
 	}
 }
