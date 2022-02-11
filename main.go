@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/HelloWorld/goProductAPI/handlers"
 	"github.com/gorilla/mux"
@@ -25,8 +26,17 @@ func main() {
 	}
 	fmt.Println("Staring Product Catalog server on Port 9090")
 	// Start Server on defined port/host.
-	err := server.ListenAndServeTLS("server.crt", "server.key")
-	if err != nil {
-		fmt.Printf("Failed to start HTTPS server: %s", err.Error())
+	isAzureDeployment := os.Getenv("AZURE_DEPLOYMENT")
+	if isAzureDeployment == "TRUE" {
+		fmt.Println("Running on Azure")
+		err := server.ListenAndServe()
+		if err != nil {
+			fmt.Println("Failed to start HTTP Server")
+		}
+	} else {
+		err := server.ListenAndServeTLS("server.crt", "server.key")
+		if err != nil {
+			fmt.Printf("Failed to start HTTPS server: %s", err.Error())
+		}
 	}
 }

@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+
 	// internal
 	"github.com/HelloWorld/goProductAPI/entity"
 	// third party
@@ -156,10 +157,10 @@ func AuthHandler(h http.Handler) http.HandlerFunc {
 			password := sha256.Sum256([]byte(os.Getenv("USER_PASS")))
 			userHash := sha256.Sum256([]byte(user))
 			passHash := sha256.Sum256([]byte(pass))
-			validUser := subtle.ConstantTimeCompare(userHash[:],username[:]) == 1
-			validPass := subtle.ConstantTimeCompare(passHash[:],password[:]) == 1
-			if validPass && validUser{
-			    h.ServeHTTP(rw,r)
+			validUser := subtle.ConstantTimeCompare(userHash[:], username[:]) == 1
+			validPass := subtle.ConstantTimeCompare(passHash[:], password[:]) == 1
+			if validPass && validUser {
+				h.ServeHTTP(rw, r)
 				return
 			}
 		}
