@@ -8,6 +8,7 @@ Blogs for Detailed Tutorial:
 * <a href="https://learnai1.home.blog/2021/07/08/microservices-in-go-part-iv-docker-and-go-microservices/">Docker and Go Microservices.</a>
 * <a href="https://learnai1.home.blog/2021/08/05/https-server-in-go/">HTTPS Server in Go.</a>
 * <a href="https://learnai1.home.blog/2021/11/27/microservices-in-go-part-vi-go-client-to-https-server/">Go TLS Client</a>
+* <a href="https://learnai1.home.blog/2022/01/13/microservices-in-go-part-vii-ci-using-github-actions/">CI with GitHub Actions</a>
 ## Run API
 
 ``` bash
