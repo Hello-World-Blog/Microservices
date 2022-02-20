@@ -9,6 +9,7 @@ Blogs for Detailed Tutorial:
 * <a href="https://learnai1.home.blog/2021/08/05/https-server-in-go/">HTTPS Server in Go.</a>
 * <a href="https://learnai1.home.blog/2021/11/27/microservices-in-go-part-vi-go-client-to-https-server/">Go TLS Client</a>
 * <a href="https://learnai1.home.blog/2022/01/13/microservices-in-go-part-vii-ci-using-github-actions/">CI with GitHub Actions</a>
+* <a href="https://learnai1.home.blog/2022/02/20/microservices-in-go-part-viii-deploy-to-azure-using-acr-app-service/">Deploy to Azure using ACR & App Service</a>
 ## Run API
 
 ``` bash
