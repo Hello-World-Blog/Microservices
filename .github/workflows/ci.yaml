@@ -18,5 +18,5 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - run: |
-          docker build -t helloworldblog.azurecr.io/microservice:latest
+          docker build -t helloworldblog.azurecr.io/microservice:latest .
           docker push helloworldblog.azurecr.io/microservice:latest
