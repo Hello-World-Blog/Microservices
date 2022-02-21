@@ -11,12 +11,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: azure/docker-login@v1
+      - name: Azure Container Registry Login
+        uses: azure/docker-login@v1
         with:
           login-server: helloworldblog.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-
-      - run: |
-          docker build -t helloworldblog.azurecr.io/microservice:latest .
-          docker push helloworldblog.azurecr.io/microservice:latest
+      - name: Build Docker Image
+        run: docker build -t helloworldblog.azurecr.io/microservice:latest .
+      - name: Push Docker Image to ACR
+        run: docker push helloworldblog.azurecr.io/microservice:latest
