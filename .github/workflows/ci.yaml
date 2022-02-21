@@ -4,19 +4,19 @@ name: Build Docker Image.
 on:
   push:
     branches: [ master ]
-
 jobs:
   build:
-    name: Build Docker Image
-    # uses ubuntu to build the image
+    name: Build & Push Docker Image.
     runs-on: ubuntu-latest
-    # checkout code from master
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-    # Build the Docker image on a push to master
-    - name: Build Docker Image
-      run:
-        docker build -t microservice .
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: azure/docker-login@v1
+        with:
+          login-server: helloworldblog.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - run: |
+          docker build -t helloworldblog.azurecr.io/microservice:latest
+          docker push helloworldblog.azurecr.io/microservice:latest
